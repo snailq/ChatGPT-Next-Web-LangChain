@@ -1,5 +1,4 @@
 import { LLMModel } from "../client/api";
-import { isMacOS } from "../utils";
 import { getClientConfig } from "../config/client";
 import {
   DEFAULT_INPUT_TEMPLATE,
@@ -7,6 +6,7 @@ import {
   DEFAULT_SIDEBAR_WIDTH,
   StoreKey,
 } from "../constant";
+import { isMacOS } from "../utils";
 import { createPersistStore } from "../utils/store";
 
 export type ModelType = (typeof DEFAULT_MODELS)[number]["name"];
@@ -29,7 +29,7 @@ export const DEFAULT_CONFIG = {
   lastUpdate: Date.now(), // timestamp, to merge state
 
   submitKey: isMacOS() ? SubmitKey.MetaEnter : SubmitKey.CtrlEnter,
-  avatar: "1f603",
+  avatar: "1f916",
   fontSize: 14,
   theme: Theme.Auto as Theme,
   tightBorder: !!getClientConfig()?.isApp,
@@ -37,10 +37,10 @@ export const DEFAULT_CONFIG = {
   enableAutoGenerateTitle: true,
   sidebarWidth: DEFAULT_SIDEBAR_WIDTH,
 
-  disablePromptHint: false,
+  disablePromptHint: true,
 
-  dontShowMaskSplashScreen: false, // dont show splash screen when create chat
-  hideBuiltinMasks: false, // dont add builtin masks
+  dontShowMaskSplashScreen: true, // dont show splash screen when create chat
+  hideBuiltinMasks: true, // dont add builtin masks
 
   customModels: "",
   models: DEFAULT_MODELS as any as LLMModel[],
@@ -55,7 +55,7 @@ export const DEFAULT_CONFIG = {
     sendMemory: true,
     historyMessageCount: 4,
     compressMessageLengthThreshold: 1000,
-    enableInjectSystemPrompts: true,
+    enableInjectSystemPrompts: false,
     template: DEFAULT_INPUT_TEMPLATE,
   },
 

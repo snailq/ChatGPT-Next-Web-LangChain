@@ -492,7 +492,7 @@ export function ChatActions(props: {
           }
         />
 
-        <ChatAction
+        {/* <ChatAction
           onClick={props.showPromptHints}
           text={Locale.Chat.InputActions.Prompt}
           icon={<PromptIcon />}
@@ -504,7 +504,7 @@ export function ChatActions(props: {
           }}
           text={Locale.Chat.InputActions.Masks}
           icon={<MaskIcon />}
-        />
+        /> */}
 
         <ChatAction
           onClick={() => setShowModelSelector(true)}
@@ -894,16 +894,16 @@ function _Chat() {
   }, [session.mask.context, session.mask.hideContext]);
   const accessStore = useAccessStore();
 
-  if (
-    context.length === 0 &&
-    session.messages.at(0)?.content !== BOT_HELLO.content
-  ) {
-    const copiedHello = Object.assign({}, BOT_HELLO);
-    if (!accessStore.isAuthorized()) {
-      copiedHello.content = Locale.Error.Unauthorized;
-    }
-    context.push(copiedHello);
-  }
+  // if (
+  //   context.length === 0 &&
+  //   session.messages.at(0)?.content !== BOT_HELLO.content
+  // ) {
+  //   const copiedHello = Object.assign({}, BOT_HELLO);
+  //   if (!accessStore.isAuthorized()) {
+  //     copiedHello.content = Locale.Error.Unauthorized;
+  //   }
+  //   context.push(copiedHello);
+  // }
 
   // preview messages
   const renderMessages = useMemo(() => {
