@@ -42,7 +42,7 @@ import {
   ChatMessage,
   SubmitKey,
   useChatStore,
-  BOT_HELLO,
+  // BOT_HELLO,
   createMessage,
   useAccessStore,
   Theme,
